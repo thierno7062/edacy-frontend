@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-header">Formulaire d'enregistrement des filières</div>
+  <div class="card-body">
+    <form [formGroup]="newSectorForm" (ngSubmit)="onSubmit()" name="createForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+        @if (isValidTouchedOrDirty('name')) {
+        @if (fieldHasError('name', 'required')) {
+        <div id="usernameErrorsNotNullError" class="message-error text-danger" role="alert">Le champs nom est
+          obligatoire.</div>
+        }
+        <!--  @if (fieldHasError('name', 'EMAIL_EXIST')) {
+            <div id="usernameErrors" class="message-error" role="alert">Ce nom de secteur est déjà enrégistré.</div>
+          } -->
+        }
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" name="email" formControlName="email">
+        @if (isValidTouchedOrDirty('email')) {
+        @if (fieldHasError('email', 'required')) {
+        <div id="emailNotNullError" class="message-error text-danger" role="alert">L'email est
+          obligatoire.</div>
+        }
+        }
+      </div>
+      <div class="mb-3">
+        <label for="salary" class="form-label">Salaire</label>
+        <input type="text" class="form-control" id="salary" name="salary" formControlName="salary">
+        @if (isValidTouchedOrDirty('salary')) {
+        @if (fieldHasError('salary', 'required')) {
+        <div id="passwordNotNullError" class="message-error text-danger" role="alert">Le champs salaire est obligatoire.</div>
+        }
+        }
+      </div>
+      <div>
+        <button [class]="newSectorForm.invalid? 'btn btn-secondary' : 'btn btn-primary'"
+          [disabled]="newSectorForm.invalid" >Valider</button>
+        <button class="btn btn-danger button-right m-lg-2"(click)="goBack()" >Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>
