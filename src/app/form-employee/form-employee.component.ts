@@ -6,6 +6,7 @@ import { AllEmployeeResponse } from '../home/models/all.employee.response';
 import { EmployeeRequest } from '../home/models/employee.request';
 import { EmployeeResponse } from '../home/models/employee.response';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-employee',
@@ -50,13 +51,16 @@ export class FormEmployeeComponent implements OnInit {
     this.sectorRequest = {
       name: this.newSectorForm.get("name")!.value,
       email: this.newSectorForm.get("email")!.value,
-      salary: this.newSectorForm.get("salary")!.value
+      salary: Number(this.newSectorForm.get("salary")!.value)
 
     }
+    console.log(this.sectorRequest);
     this.sectorService.save<EmployeeRequest,EmployeeResponse>('employees', this.sectorRequest).subscribe({
       next: (response) => {
-          console.log(this.sectorRequest),
+          // console.log(this.sectorRequest),
           console.log(response);
+          Swal.fire('Success', 'Employé ajouter avec success', 'success');
+          this.router.navigate(['home']);
         },
         error: (error) => {
           this.httpErrorService.handleError(error);

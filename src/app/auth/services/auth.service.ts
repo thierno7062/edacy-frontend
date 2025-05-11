@@ -2,13 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  baseUrl = 'http://localhost:8088';
+  baseUrl = environment.apiUrl;
   dataRequest = {
     username: 'admin',
     password: 'Admin123!'

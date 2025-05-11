@@ -4,13 +4,8 @@
 
 export const environment = {
   production: false,
-  appVersion: '1.0.0',
-  USERDATA_KEY: 'authf649fc9a5f55',
-  isMockEnabled: true,
-  // apiUrl: 'http://localhost:8080/api/',
-  apiUrl: 'http://localhost:8081/api/',
-  appThemeName: 'Cocotier',
-  cocotierVersion: localStorage.getItem('version')
+
+  apiUrl: 'http://localhost:8088',
 };
 
 /*

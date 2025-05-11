@@ -27,7 +27,7 @@
       </div>
       <div class="mb-3">
         <label for="salary" class="form-label">Salaire</label>
-        <input type="text" class="form-control" id="salary" name="salary" formControlName="salary">
+        <input type="number" class="form-control" id="salary" name="salary" formControlName="salary">
         @if (isValidTouchedOrDirty('salary')) {
         @if (fieldHasError('salary', 'required')) {
         <div id="passwordNotNullError" class="message-error text-danger" role="alert">Le champs salaire est obligatoire.</div>
